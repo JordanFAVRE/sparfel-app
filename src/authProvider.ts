@@ -43,7 +43,7 @@ export const authProvider: AuthProvider = {
 
         return Promise.resolve({
             id: 1,
-            name: "Jordan Favre",
+            name: "Test user",
             avatar: "https://i.pravatar.cc/150",
         });
     },
