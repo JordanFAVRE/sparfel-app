@@ -1,5 +1,5 @@
 import { Refine } from "@pankod/refine-core";
-import { KBarProvider } from "@pankod/refine-kbar";
+import { RefineKbarProvider } from "@pankod/refine-kbar";
 import {
     ErrorComponent,
     ReadyPage,
@@ -39,9 +39,12 @@ import { CategoryList } from "pages/categories";
 import { ColorModeContextProvider } from "contexts";
 import { Header, Title, OffLayoutArea } from "components";
 import { BikeWhiteIcon } from "components/icons/bike-white";
+import { ReactElement } from "react";
 
-const App: React.FC = () => {
-    const { t, i18n } = useTranslation();
+
+
+function App(): ReactElement {
+    const { t, i18n } = useTranslation();  
     const i18nProvider = {
         translate: (key: string, params: object) => t(key, params),
         changeLocale: (lang: string) => i18n.changeLanguage(lang),
@@ -49,7 +52,7 @@ const App: React.FC = () => {
     };
 
     return (
-        <KBarProvider>
+        <RefineKbarProvider>
             <ColorModeContextProvider>
                 <CssBaseline />
                 <GlobalStyles
@@ -168,7 +171,7 @@ const App: React.FC = () => {
                     />
                 </RefineSnackbarProvider>
             </ColorModeContextProvider>
-        </KBarProvider>
+        </RefineKbarProvider>
     );
 };
 
